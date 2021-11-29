@@ -48,10 +48,10 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_TIMELIFE'     : timedelta(minutes=15),
     'REFRESH_TOKEN_TIMELIFE'    : timedelta(days=1),
     'ROTATE_REFRESH_TOKENS'     : False,
-    'BLACKLIST_AFTER_ROTATION'  : True,
+    'BLACKLIST_AFTER_ROTATION'  : False,
     'UPDATE_LAST_LOGIN'         : False,
-    'ALGORITHM'                 :'HS256',
-    'USER_ID_FIELD'             :'id',
+    'ALGORITHM'                 : 'HS256',
+    'USER_ID_FIELD'             : 'id',
     'USER_ID_CLAIM'             : 'user_id',
 }
 
@@ -74,6 +74,9 @@ REST_FRAMEWORK = {
         'rest_framework.simplejwt.authentication.JWTAuthentication',
     )
 }
+
+
+AUTH_USER_MODEL = 'auth_mercagro.User'
 ROOT_URLCONF = 'backend_auth_mercagro.urls'
 
 TEMPLATES = [
@@ -100,8 +103,12 @@ WSGI_APPLICATION = 'backend_auth_mercagro.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE'    : 'django.db.backends.postgresql_psycopg2',
+        'NAME'      : 'd37uhtmkpg02oi',
+        'USER'      : 'ikravfoqivsmrt',
+        'PASSWORD'  : '6c78819b80697000ce206dfd7d326e038e5a860389b3873e8ff7d5074ddba8ad',
+        'HOST'      : 'ec2-23-23-219-25.compute-1.amazonaws.com',
+        'PORT'      : '5432'
     }
 }
 
