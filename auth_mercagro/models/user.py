@@ -9,6 +9,7 @@ class UserManager(BaseUserManager):
         user = self.model(username=username)
         user.set_password(password)
         user.save(using=self._db)
+        return user
 
     def create_superuser(self,username,password):
         user = self.create_user(
@@ -27,7 +28,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     email       = models.EmailField('Email',    max_length=100,unique=True)
 
     def save(self,**kwargs):
-        some_salt = 'mMUjODrIK6vgtIYepkIxN'
+        some_salt = 'mMUj0DrIK6vgtdIYepkIxN'
         self.password = make_password(self.password, some_salt)
         super().save(**kwargs)
 

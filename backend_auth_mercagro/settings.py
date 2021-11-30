@@ -27,8 +27,6 @@ SECRET_KEY = 'django-insecure-)ej160%bh7t2cu8n81ss#0yte36d-!d7f+8&bt*m-7vz^n!9u!
 DEBUG = True
 
 ALLOWED_HOSTS           = []
-CORS_ALLOW_ALL_ORIGINS  = True
-
 
 # Application definition
 
@@ -41,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'auth_mercagro',
     'rest_framework',
-    'corsheaders'
 ]
 
 SIMPLE_JWT = {
@@ -63,7 +60,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 REST_FRAMEWORK = {
@@ -155,3 +151,6 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import django_heroku
+django_heroku.settings(locals())
