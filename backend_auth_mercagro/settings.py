@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-)ej160%bh7t2cu8n81ss#0yte36d-!d7f+8&bt*m-7vz^n!9u!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS           = []
+ALLOWED_HOSTS           = ["auth-ms-mercagro.herokuapp.com"]
 
 # Application definition
 
@@ -153,4 +153,4 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 import django_heroku
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
